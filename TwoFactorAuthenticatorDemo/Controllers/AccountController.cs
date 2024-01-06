@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using TwoFactorAuthenticatorDemo.DataContext;
 using TwoFactorAuthenticatorDemo.Models;
 using TwoFactorAuthenticatorDemo.Models.DTO;

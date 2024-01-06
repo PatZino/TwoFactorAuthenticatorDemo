@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TwoFactorAuthenticatorDemo.Models;
-using TwoFactorAuthenticatorDemo.Utility;
 
 namespace TwoFactorAuthenticatorDemo.Controllers
 {
