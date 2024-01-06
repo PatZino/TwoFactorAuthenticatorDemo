@@ -1,0 +1,37 @@
+﻿
+<section>
+
+    <div>
+        <h1>Enable Two-Factor Authentication</h1>
+
+        @if (ViewData["Message"] != null)
+        {
+            var message = ViewData["Message"];
+
+            <div class="alert alert-danger">
+                <h4>Error</h4>
+                <p>@message</p>
+            </div>
+        }
+
+        @if (ViewData["QRCodeSetup"] != null && ViewData["QRCodeSetup"] is Google.Authenticator.SetupCode)
+        {
+            var setupCode = (Google.Authenticator.SetupCode)ViewData["QRCodeSetup"];
+            <img src='@setupCode.QrCodeSetupImageUrl' alt="QR Code for 2FA" width="200px;" height="200px;" />
+
+            <p>Scan this QR code with your authenticator app:</p>
+            <p>- Open your authenticator app</p>
+            <p>- Select the option to "Add" or "Scan QR code"</p>
+            <p>- Point your device's camera at the QR code to scan it</p>
+        }
+        else
+        {
+            <p>No QR code available</p>
+        }
+
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</section>
+
+

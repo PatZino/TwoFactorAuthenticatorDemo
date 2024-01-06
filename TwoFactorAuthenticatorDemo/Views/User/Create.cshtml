@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model TwoFactorAuthenticatorDemo.Models.DTO.NewUserViewModel
+
+<h1>Create User</h1>
+@if (ViewData["Message"] != null)
+{
+    var message = ViewData["Message"];
+    if (message is string)
+    {
+        <div class="alert alert-danger">
+            <h4>Error</h4>
+            <p>@message</p>
+        </div>
+    }
+    else
+    {
+        var errors = (IEnumerable<IdentityError>)ViewData["Message"];
+        <div class="alert alert-danger">
+            <h4>Errors:</h4>
+            <ul>
+                @foreach (var error in errors)
+                {
+                    <li>@error.Description</li>
+                }
+            </ul>
+        </div>
+    }
+}
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <!-- Add other fields as necessary -->
+    <button type="submit">Create</button>
+</form>
+
+<a asp-action="Index">Back to List</a>

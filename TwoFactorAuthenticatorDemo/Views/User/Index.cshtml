@@ -1,0 +1,29 @@
+﻿@model List<User>
+
+<h1>User List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@user.Id">Delete</a> |
+                    <a asp-action="EnableTwoFactorAuth" asp-route-userId="@user.Id">Enable 2FA</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New User</a>

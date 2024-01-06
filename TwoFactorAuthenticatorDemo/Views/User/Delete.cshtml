@@ -1,0 +1,20 @@
+﻿@model User
+
+<h1>Delete User</h1>
+
+@if (ViewData["Message"] != null)
+{
+    var message = ViewData["Message"];
+
+    <div class="alert alert-danger">
+        <h4>Error</h4>
+        <p>@message</p>
+    </div>
+}
+
+<p>Are you sure you want to delete this user?</p>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Delete</button>
+    <a asp-action="Index">Cancel</a>
+</form>

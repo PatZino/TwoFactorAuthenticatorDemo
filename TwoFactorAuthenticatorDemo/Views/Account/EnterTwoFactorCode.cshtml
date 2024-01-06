@@ -1,0 +1,31 @@
+﻿@model TwoFactorAuthenticatorDemo.Models.DTO.TwoFactorAuthCodeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Account.cshtml";
+}
+
+<h1>Enter Two-Factor Authentication Code</h1>
+
+@if (ViewData["Message"] != null)
+{
+    var message = ViewData["Message"];
+
+    <div class="alert alert-danger">
+        <h4>Error</h4>
+        <p>@message</p>
+    </div>
+}
+
+<form asp-action="EnterTwoFactorCode" method="post">
+    <input type="hidden" asp-for="UserId" />
+    <div>
+        <label asp-for="Code"></label>
+        <input asp-for="Code" />
+        <span asp-validation-for="Code"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        <input asp-for="RememberMe" type="checkbox" />
+    </div>
+    <button type="submit">Submit</button>
+</form>

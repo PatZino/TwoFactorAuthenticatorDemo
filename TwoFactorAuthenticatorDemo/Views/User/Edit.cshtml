@@ -1,0 +1,33 @@
+﻿@model TwoFactorAuthenticatorDemo.Models.DTO.UpdateUserViewModel
+
+<h1>Edit User</h1>
+
+@if (ViewData["Message"] != null)
+{
+    var message = ViewData["Message"];
+
+    <div class="alert alert-danger">
+        <h4>Error</h4>
+        <p>@message</p>
+    </div>
+}
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="TwoFactorSecretKey" />
+    <input type="hidden" asp-for="TwoFactorEnabled" />
+    <div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <!-- Add other fields as necessary -->
+    <button type="submit">Save</button>
+</form>
+
+<a asp-action="Index">Back to List</a>
